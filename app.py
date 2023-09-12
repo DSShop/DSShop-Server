@@ -175,7 +175,7 @@ questions = [
     {
         "message": "Select a option.",
         "type": "list",
-        "choices": [("Start Server" if config['setup'] else "Setup Server"), "Extras"],
+        "choices": [("Start Server" if config['setup'] else "Setup Server"), "Keys", "Extras"],
     }
 ]
 
