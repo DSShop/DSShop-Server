@@ -1,0 +1,28 @@
+{
+    "roms": [
+        {
+            "name": "New Super Mario Bros",
+            "download": "downloadlinkhere",
+            "icon": "urltodownloadhere",
+            "author": "authorhere",
+            "region": "regionhere",
+            "user": {
+                "name": "discord_username_here",
+                "discriminator": "only_if_no_username",
+                "avatar": "discord_user_avatar_url"
+            }
+        },
+        {
+            "name": "Mario Kart DS",
+            "download": "downloadlinkhere",
+            "icon": "urltodownloadhere",
+            "author": "authorhere",
+            "region": "regionhere",
+            "user": {
+                "name": "discord_username_here",
+                "discriminator": "only_if_no_username",
+                "avatar": "discord_user_avatar_url"
+            }
+        }
+    ]
+}
