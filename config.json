@@ -1,10 +1,11 @@
 {
-      "colors": true,
-      "firsttime": false,
-      "setup": false,
-      "keys": {},
-      "webhook": {
-            "enabled": false,
-            "url": null
-      }
+     "colors": false,
+     "firsttime": true,
+     "setup": false,
+     "keys": {
+     },
+     "webhook": {
+          "enabled": false,
+          "url": null
+     }
 }

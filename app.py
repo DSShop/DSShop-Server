@@ -93,6 +93,7 @@ if MONGO_URL == None:
 con = pymongo.MongoClient(MONGO_URL)
 db = con['dsshop']
 authdb = db['serverauth']
+tipsdb = db['tips']
 
 clear()
 
@@ -169,10 +170,19 @@ else:
 if config['webhook']['enabled']:
     logger(str(linked_user['user']), 'neutral', str(linked_user['user']) + ' Logged in.', config['webhook']['url'])
 
+tips = []
+
+for xyz in tipsdb.find():
+    tips.append({ 'tip': xyz['tip'], 'createdby': xyz['creator'] })
+
 if config['colors']:
     print(rainbowtext.text('DSShop Server ') + Fore.RESET + '- Panel' + ' | Linked account: ' + linked_user['user'] + '\n')
+    tip = random.choice(tips)
+    print('Random tip: ' + tip['tip'] + '\nTip by: ' + tip['createdby'] +'\n')
 else:
     print('DSShop Server - Panel | Linked account: ' + linked_user['user'] + '\n')
+    tip = random.choice(tips)
+    print('Random tip: ' + tip['tip'] + '\nTip by: ' + tip['createdby'] +'\n')
 
 def is_setup(result):
     return result[0] == "Setup Server"
@@ -386,7 +396,7 @@ if result[0] == "Keys":
             {
                 "message": "Select a option.",
                 "type": "list",
-                "choices": ["See current keys", "Disable a key", "Create new key"],
+                "choices": ["Disable a key", "Create new key"],
             }
         ]
 
@@ -395,14 +405,18 @@ if result[0] == "Keys":
         except InvalidArgument:
             print("No available choices")
 
-        if result2[0] == "See current keys":
-            
-            keys = config['keys']
-
+        if result2[0] == "Create new key":
             clear()
-
             print(rainbowtext.text('DSShop Server ') + Fore.RESET + '- Keys management' + ' | Linked account: ' + linked_user['user'] +'\n')
-            
+
+            config['keys'][str(linked_user['user'])] = { 'name': linked_user['user'], 'key': key_generator(24) }
+
+            with open('config.json', 'w') as f:
+                json.dump(config, f, indent=5)
+
+            print(Fore.YELLOW + '[!] ' + Fore.RESET + 'Created new key for user ' + linked_user['user'] + ': ' + config['keys'][str(linked_user['user'])]['key'])
+
+            print('\nPlease restart the panel.')
 
 if result[0] == 'Start Server':
     clear()
