@@ -84,6 +84,12 @@ config = json.load(open('config.json', 'r'))
 MONGO_URL = os.environ.get('DSSHOP_SERVER_MONGO_URL')
 clear()
 print('[!] Connecting to the database...')
+
+if MONGO_URL == None:
+    print('DSShop Server - ERROR!\nThe DSShop Server encountered an error due to missing MongoDB database. Possible fixes:\nWindows: Add it to your PATH.\nLinux: Before running the server, run: export DSSHOP_SERVER_MONGO_URL=your_mongodb_database_url_here and run the server again.\nExiting.')
+    exit()
+
+
 con = pymongo.MongoClient(MONGO_URL)
 db = con['dsshop']
 authdb = db['serverauth']
@@ -368,7 +374,35 @@ if result[0] == "Setup Server":
             print('[!] ' + 'Aborted.')
             exit()
 
-#!!! ADD THE DOWNLOADA SERVER PART!!!!
+#!!! TODO: Add the download server part.!!!!
+
+if result[0] == "Keys":
+    clear()
+    
+    if config['colors']:
+        print(rainbowtext.text('DSShop Server ') + Fore.RESET + '- Keys management' + ' | Linked account: ' + linked_user['user'] +'\n')
+        
+        questions2 = [
+            {
+                "message": "Select a option.",
+                "type": "list",
+                "choices": ["See current keys", "Disable a key", "Create new key"],
+            }
+        ]
+
+        try:
+            result2 = prompt(questions2, vi_mode=True)
+        except InvalidArgument:
+            print("No available choices")
+
+        if result2[0] == "See current keys":
+            
+            keys = config['keys']
+
+            clear()
+
+            print(rainbowtext.text('DSShop Server ') + Fore.RESET + '- Keys management' + ' | Linked account: ' + linked_user['user'] +'\n')
+            
 
 if result[0] == 'Start Server':
     clear()

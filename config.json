@@ -1,13 +1,10 @@
 {
-     "colors": false,
-     "linked": null,
-     "firsttime": true,
-     "setup": false,
-     "keys": {
-
-     },
-     "webhook": {
-          "enabled": false,
-          "url": null
-     }
+      "colors": true,
+      "firsttime": false,
+      "setup": false,
+      "keys": {},
+      "webhook": {
+            "enabled": false,
+            "url": null
+      }
 }
