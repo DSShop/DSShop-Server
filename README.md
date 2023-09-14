@@ -17,7 +17,7 @@ It contains a Self-Repair tool, if something goes wrong.
             - Create a collection called "tips": This will contain tips about the panel or your project - To add a tip, you need the [DSShop Bot](https://github.com/DSShop/DSShop-Bot)
 
 - A Linux machine
-    - A Windows machine should also work, but support is only provided for Windows.
+    - A Windows machine should also work, but support is only provided for Linux.
 
 - A Discord account to link the panel to
     - This is gonna be removed soon.
