@@ -11,10 +11,10 @@ It contains a Self-Repair tool, if something goes wrong.
 
 - A MongoDB database
     - Inside the MongoDB, you need:
-        - A database called "dsshop"
-            - Create a collection called "serverauth" - You will need this to link your Discord account to the server panel
+        - A database called "dsshop".
+            - Create a collection called "serverauth" - You will need this to link your Discord account to the server panel.
 
-            - Create a collection called "tips": This will contain tips about the panel or your project - To add a tip, you need the [DSShop Bot](https://github.com/DSShop/DSShop-Bot)
+            - Create a collection called "tips": This will contain tips about the panel or your project - To add a tip, you need the [DSShop Bot](https://github.com/DSShop/DSShop-Bot).
 
 - A Linux machine
     - A Windows machine should also work, but support is only provided for Linux.
