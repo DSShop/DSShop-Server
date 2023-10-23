@@ -5,7 +5,7 @@ Authentication is via a code sent by the [DSShop Bot](https://github.com/DSShop/
 
 It contains a Self-Repair tool, if something goes wrong.
 
-### It's made for Linux, but SHOULD also work on Windows. No support is given if running on Windows.
+### It's made for Linux, but SHOULD also work on Windows. No support is given for running it on Windows.
 
 # Requirements:
 
